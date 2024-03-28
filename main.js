@@ -6,6 +6,7 @@ const gyroData = {
   dbeta: null,
   dgamma: null
 };
+
 const acellData = {
   x: 0,
   y: 0,
@@ -14,6 +15,11 @@ const acellData = {
   dy: null,
   dz: null
 };
+
+const state = {
+  gyro: false,
+  acell: false
+}
 
 const temp = {
   alpha: null,
@@ -68,17 +74,30 @@ function gyro(event) {
   document.getElementById('gyroAlpha').textContent = gyroData.alpha.toFixed(3);
   document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
   document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
-  document.getElementById('DgyroAlpha').textContent = gyroData.dalpha.toFixed(3);
-  document.getElementById('DgyroBeta').textContent = gyroData.dbeta.toFixed(3);
-  document.getElementById('DgyroGamma').textContent = gyroData.dgamma.toFixed(3);
+  
+  if(((math.abs(gyroData.dalpha)) > treshold)||((math.abs(gyroData.dbeta)) > treshold)||((math.abs(gyroData.dgamma)) > treshold)){
+    state.gyro = true;
+    document.getElementById('GyroState').textContent = "Detectado Movimento";
+  }else{
+    state.gyro = false;
+    document.getElementById('GyroState').textContent = "Detectado Movimento";
+  }
 }
+
+
 function acell(event) {
   acellData.dx = event.acceleration.x;
   acellData.dy = event.acceleration.y;
   acellData.dz = event.acceleration.z;
   
-  document.getElementById('Dacellx').textContent = acellData.dx.toFixed(3);
-  document.getElementById('Dacelly').textContent = acellData.dy.toFixed(3);
-  document.getElementById('Dacellz').textContent = acellData.dz.toFixed(3);
+  if(((math.abs(acellData.dx)) > treshold)||((math.abs(acellData.dy)) > treshold)||((math.abs(acellData.dz)) > treshold)){
+    state.acell = true;
+    document.getElementById('AcellState').textContent = "Detectado Movimento";
+  }else{
+    state.acell = false;
+    document.getElementById('AcellState').textContent = "Parado";
+  }
+  
+  
 }
 
