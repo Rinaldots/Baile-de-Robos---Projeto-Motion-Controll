@@ -75,7 +75,7 @@ function gyro(event) {
   document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
   document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
   
-  if(((math.abs(gyroData.dalpha)) > treshold)||((math.abs(gyroData.dbeta)) > treshold)||((math.abs(gyroData.dgamma)) > treshold)){
+  if(((Math.abs(gyroData.dalpha)) > treshold)||((Math.abs(gyroData.dbeta)) > treshold)||((Math.abs(gyroData.dgamma)) > treshold)){
     state.gyro = true;
     document.getElementById('GyroState').textContent = "Detectado Movimento";
   }else{
@@ -90,7 +90,7 @@ function acell(event) {
   acellData.dy = event.acceleration.y;
   acellData.dz = event.acceleration.z;
   
-  if(((math.abs(acellData.dx)) > treshold)||((math.abs(acellData.dy)) > treshold)||((math.abs(acellData.dz)) > treshold)){
+  if(((Math.abs(acellData.dx)) > treshold)||((Math.abs(acellData.dy)) > treshold)||((Math.abs(acellData.dz)) > treshold)){
     state.acell = true;
     document.getElementById('AcellState').textContent = "Detectado Movimento";
   }else{
