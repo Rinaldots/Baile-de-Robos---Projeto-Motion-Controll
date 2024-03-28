@@ -75,7 +75,7 @@ function gyro(event) {
   document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
   document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
   
-  if(((Math.abs(gyroData.dalpha)) > treshold)||((Math.abs(gyroData.dbeta)) > treshold)||((Math.abs(gyroData.dgamma)) > treshold)){
+  if(((Math.abs(gyroData.dalpha)) > 5*treshold)||((Math.abs(gyroData.dbeta)) > 5*treshold)||((Math.abs(gyroData.dgamma)) > 5*treshold)){
     state.gyro = true;
     document.getElementById('GyroState').textContent = "Detectado Movimento";
   }else{
