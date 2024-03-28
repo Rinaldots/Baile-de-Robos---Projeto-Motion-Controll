@@ -67,9 +67,7 @@ function gyro(event) {
   gyroData.beta = event.beta;
   gyroData.gamma = event.gamma;
 
-  gyroData.dalpha = gyroData.alpha - temp.alpha;
-  gyroData.dbeta = gyroData.beta - temp.beta;
-  gyroData.dgamma = gyroData.gamma - temp.gamma;
+  
  
   document.getElementById('gyroAlpha').textContent = gyroData.alpha.toFixed(3);
   document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
