@@ -42,6 +42,7 @@ function onClick() {
     DeviceOrientationEvent.requestPermission()
       .then(permissionState => {
         if (permissionState === 'granted') {
+          document.getElementById('Dacellx').textContent = "pass";
           window.addEventListener('deviceorientation', gyro);
         }
       })
