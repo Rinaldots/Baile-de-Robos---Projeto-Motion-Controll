@@ -30,7 +30,7 @@ const temp = {
   z: null,
 };
 
-const treshold = 1;
+const treshold = 5;
 
 function onClick() {
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
@@ -93,12 +93,12 @@ function acell(event) {
     state.acell = false;
     document.getElementById('AcellState').textContent = "Parado";
   }
-  if(((Math.abs(gyroData.dalpha)) > 5*treshold)||((Math.abs(gyroData.dbeta)) > 5*treshold)||((Math.abs(gyroData.dgamma)) > 5*treshold)){
+  if(((Math.abs(gyroData.dalpha)) > treshold)||((Math.abs(gyroData.dbeta)) > treshold)||((Math.abs(gyroData.dgamma)) > treshold)){
     state.gyro = true;
     document.getElementById('GyroState').textContent = "Detectado Movimento";
   }else{
     state.gyro = false;
-    document.getElementById('GyroState').textContent = "Detectado Movimento";
+    document.getElementById('GyroState').textContent = "Parado";
   }
   
 }
