@@ -1,0 +1,73 @@
+<head>
+    <title>Baile dos Robôs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js"></script>
+  </head>
+  <body>
+    <input type=button onclick="onClick()" value="click to activate">
+    <header>
+        <div class="header">
+            <h1>10 Dimensões
+            </h1>
+        </div>
+    </header>
+    <div class="h1">
+        <h3>Giroscópio</h3>
+        </div>
+            <div class="cube-content">
+                <div id="3Dcube"></div>
+            </div>
+        </div>
+        <div class="card">
+            <p><span class="reading">X: <span id="gyroX"></span> rad</span></p>
+            <p><span class="reading">Y: <span id="gyroY"></span> rad</span></p>
+            <p><span class="reading">Z: <span id="gyroZ"></span> rad</span></p>
+        </div>
+        <div class="card">
+            <p class="card-title">3D</p>
+            <button id="reset" onclick="resetPosition(this)">RESET POSITION</button>
+            <button id="resetX" onclick="resetPosition(this)">X</button>
+            <button id="resetY" onclick="resetPosition(this)">Y</button>
+            <button id="resetZ" onclick="resetPosition(this)">Z</button>
+        
+    </div>
+    <div>
+        <label for="coreografia">Coreografia:
+            <input type="" id="coreografia">
+        </label>
+    </div>
+    <div id="leds">
+        <h3>LEDs</h3>
+        <input type="checkbox" name="" id="led1">
+        <input type="checkbox" name="" id="led2">
+        <input type="checkbox" name="" id="led3">
+        <input type="checkbox" name="" id="led4">
+        <input type="checkbox" name="" id="led5">
+        <input type="checkbox" name="" id="led6">
+        <input type="checkbox" name="" id="led7">
+        <input type="checkbox" name="" id="led8">
+    </div>
+    <div class="cards">
+        <div id="controle">
+            <h3>
+                Controle
+            </h3>
+            <input type="button" value="←">
+            <input type="button" value="↑">
+            <input type="button" value="→">
+            <input type="button" value="↓">
+        </div>
+    </div>
+    <div>
+        <h3>
+            Música:
+            <input type="form" id="musica">
+        </h3>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+  </html>
