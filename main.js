@@ -141,7 +141,7 @@ function resetPosition(element){
   xhr.send();
 }
 
-const coreografias = getElementById('coreografia');
+const coreografias = document.getElementById('coreografia');
 
 const coreoInput = document.createElement('input');
 
