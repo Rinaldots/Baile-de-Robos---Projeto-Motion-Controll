@@ -75,13 +75,7 @@ function gyro(event) {
   document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
   document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
   
-  if(((Math.abs(gyroData.dalpha)) > 5*treshold)||((Math.abs(gyroData.dbeta)) > 5*treshold)||((Math.abs(gyroData.dgamma)) > 5*treshold)){
-    state.gyro = true;
-    document.getElementById('GyroState').textContent = "Detectado Movimento";
-  }else{
-    state.gyro = false;
-    document.getElementById('GyroState').textContent = "Detectado Movimento";
-  }
+  
 }
 
 
@@ -90,6 +84,10 @@ function acell(event) {
   acellData.dy = event.acceleration.y;
   acellData.dz = event.acceleration.z;
   
+  gyroData.dalpha = event.rotationRate.alpha;
+  gyroData.dbeta = event.rotationRate.beta;
+  gyroData.dgamma = event.rotationRate.gamma;
+  
   if(((Math.abs(acellData.dx)) > treshold)||((Math.abs(acellData.dy)) > treshold)||((Math.abs(acellData.dz)) > treshold)){
     state.acell = true;
     document.getElementById('AcellState').textContent = "Detectado Movimento";
@@ -97,7 +95,13 @@ function acell(event) {
     state.acell = false;
     document.getElementById('AcellState').textContent = "Parado";
   }
-  
+  if(((Math.abs(gyroData.dalpha)) > 5*treshold)||((Math.abs(gyroData.dbeta)) > 5*treshold)||((Math.abs(gyroData.dgamma)) > 5*treshold)){
+    state.gyro = true;
+    document.getElementById('GyroState').textContent = "Detectado Movimento";
+  }else{
+    state.gyro = false;
+    document.getElementById('GyroState').textContent = "Detectado Movimento";
+  }
   
 }
 
