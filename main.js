@@ -52,7 +52,12 @@ function cb(event) {
   gyroData.dbeta = gyroData.beta - temp.beta;
   gyroData.dgamma = gyroData.gamma - temp.gamma;
 
-  update();
+  document.getElementById('gyroAlpha').textContent = gyroData.alpha.toFixed(3);
+  document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
+  document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
+  document.getElementById('DgyroAlpha').textContent = gyroData.dalpha.toFixed(3);
+  document.getElementById('DgyroBeta').textContent = gyroData.dbeta.toFixed(3);
+  document.getElementById('DgyroGamma').textContent = gyroData.dgamma.toFixed(3);
 }
 
 
