@@ -29,6 +29,15 @@ function onClick() {
   }
 }
 
+function update(){
+  document.getElementById('gyroAlpha').textContent = gyroData.alpha.toFixed(3);
+  document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
+  document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
+  document.getElementById('DgyroAlpha').textContent = gyroData.dalpha.toFixed(3);
+  document.getElementById('DgyroBeta').textContent = gyroData.dbeta.toFixed(3);
+  document.getElementById('DgyroGamma').textContent = gyroData.dgamma.toFixed(3);
+}
+
 function cb(event) {
   temp.alpha = gyroData.alpha;
   temp.beta = gyroData.beta;
@@ -45,12 +54,5 @@ function cb(event) {
 
   update();
 }
-function update(){
-  document.getElementById('gyroAlpha').textContent = gyroData.alpha.toFixed(3);
-  document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
-  document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
-  document.getElementById('DgyroAlpha').textContent = gyroData.dalpha.toFixed(3);
-  document.getElementById('DgyroBeta').textContent = gyroData.dbeta.toFixed(3);
-  document.getElementById('DgyroGamma').textContent = gyroData.dgamma.toFixed(3);
-}
+
 
