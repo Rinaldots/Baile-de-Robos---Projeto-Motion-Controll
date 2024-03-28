@@ -42,7 +42,6 @@ function onClick() {
     DeviceOrientationEvent.requestPermission()
       .then(permissionState => {
         if (permissionState === 'granted') {
-          document.getElementById('Dacellx').textContent = "pass";
           window.addEventListener('deviceorientation', gyro);
         }
       })
@@ -74,12 +73,19 @@ function gyro(event) {
   document.getElementById('DgyroGamma').textContent = gyroData.dgamma.toFixed(3);
 }
 function acell(event) {
-  acellData.x = event.acceleration.x;
-  acellData.y = event.acceleration.y;
-  acellData.z = event.acceleration.z;
+  acellData.dx = event.acceleration.x;
+  acellData.dy = event.acceleration.y;
+  acellData.dz = event.acceleration.z;
+
+  acellData.x += event.accelleration.x;
+  acellData.y += event.accelleration.y;
+  acellData.z += event.accelleration.z;
   
-  document.getElementById('Dacellx').textContent = acellData.x.toFixed(3);
-  document.getElementById('Dacelly').textContent = acellData.y.toFixed(3);
-  document.getElementById('Dacellz').textContent = acellData.z.toFixed(3);
+  document.getElementById('Dacellx').textContent = acellData.dx.toFixed(3);
+  document.getElementById('Dacelly').textContent = acellData.dy.toFixed(3);
+  document.getElementById('Dacellz').textContent = acellData.dz.toFixed(3);
+  document.getElementById('acellx').textContent = acellData.x.toFixed(3);
+  document.getElementById('acelly').textContent = acellData.y.toFixed(3);
+  document.getElementById('acellz').textContent = acellData.z.toFixed(3);
 }
 
