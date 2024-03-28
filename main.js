@@ -276,28 +276,5 @@ function fromTo(a,b){
 
     let q; // Declare a variável q
 
-    function setup() {
-      createCanvas(windowWidth, windowHeight, WEBGL); // Use WEBGL mode for 3D graphics
-      background(0);
-      directionalLight(255, 255, 255, -1, -1, -1);
-      ambientLight(80);
-      q = new p5.Quaternion(); // Inicialize a variável q com a classe p5.Quaternion
-    }
 
-    function draw() {
-      background(0);
-
-      let qx = new p5.Quaternion(gyroData.x, 1, 0, 0);
-      let qy = new p5.Quaternion(gyroData.y, 0, 1, 0);
-      let qz = new p5.Quaternion(gyroData.z, 0, 0, 1);
-
-      // Aplica as rotações
-      q = qx.mult(qy).mult(qz).mult(q);
-
-      // Posiciona a câmera para visualização 3D
-      camera(0, 0, 500, 0, 0, 0, 0, 1, 0);
-
-      // Desenha o cubo
-      rotate(q);
-      box(100);
-    }
+    
