@@ -77,9 +77,9 @@ function acell(event) {
   acellData.dy = event.acceleration.y;
   acellData.dz = event.acceleration.z;
 
-  acellData.x += acellData.dx;
-  acellData.y += acellData.dy;
-  acellData.z += acellData.dz;
+  acellData.x = acellData.x + acellData.dx;
+  acellData.y = acellData.y + acellData.dy;
+  acellData.z = acellData.z + acellData.dz;
   
   document.getElementById('Dacellx').textContent = acellData.dx.toFixed(3);
   document.getElementById('Dacelly').textContent = acellData.dy.toFixed(3);
