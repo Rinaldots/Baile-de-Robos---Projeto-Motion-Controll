@@ -76,16 +76,9 @@ function acell(event) {
   acellData.dx = event.acceleration.x;
   acellData.dy = event.acceleration.y;
   acellData.dz = event.acceleration.z;
-
-  acellData.x = acellData.x + acellData.dx;
-  acellData.y = acellData.y + acellData.dy;
-  acellData.z = acellData.z + acellData.dz;
   
   document.getElementById('Dacellx').textContent = acellData.dx.toFixed(3);
   document.getElementById('Dacelly').textContent = acellData.dy.toFixed(3);
   document.getElementById('Dacellz').textContent = acellData.dz.toFixed(3);
-  document.getElementById('acellx').textContent = acellData.x.toFixed(3);
-  document.getElementById('acelly').textContent = acellData.y.toFixed(3);
-  document.getElementById('acellz').textContent = acellData.z.toFixed(3);
 }
 
