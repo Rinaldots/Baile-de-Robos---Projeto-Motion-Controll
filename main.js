@@ -29,7 +29,6 @@ const treshold = 0.2;
 function onClick() {
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
     DeviceMotionEvent.requestPermission()
-    DeviceMotionEventAcceleration.requestPermission()
     .then(permissionState => {
       if (permissionState === 'granted') {
         window.addEventListener('devicemotion', acell);
