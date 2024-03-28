@@ -7,9 +7,9 @@ const gyroData = {
   dgamma: null
 };
 const acellData = {
-  x: null,
-  y: null,
-  z: null,
+  x: 0,
+  y: 0,
+  z: 0,
   dx: null,
   dy: null,
   dz: null
@@ -77,9 +77,9 @@ function acell(event) {
   acellData.dy = event.acceleration.y;
   acellData.dz = event.acceleration.z;
 
-  acellData.x += event.accelleration.x;
-  acellData.y += event.accelleration.y;
-  acellData.z += event.accelleration.z;
+  acellData.x += acellData.dx;
+  acellData.y += acellData.dy;
+  acellData.z += acellData.dz;
   
   document.getElementById('Dacellx').textContent = acellData.dx.toFixed(3);
   document.getElementById('Dacelly').textContent = acellData.dy.toFixed(3);
