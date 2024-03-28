@@ -3,6 +3,8 @@ let theta1=0
 let theta2=0
 let theta3=0
 
+let PI=3.14
+
 let dthetaXdt=0;
 let dthetaYdt=0;
 let dthetaZdt=0;
