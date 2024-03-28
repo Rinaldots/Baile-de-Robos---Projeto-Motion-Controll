@@ -30,7 +30,7 @@ const temp = {
   z: null,
 };
 
-const treshold = 0.2;
+const treshold = 1;
 
 function onClick() {
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
