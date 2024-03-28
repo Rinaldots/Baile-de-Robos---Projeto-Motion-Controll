@@ -30,8 +30,8 @@ const temp = {
   z: null,
 };
 
-const acelltresholf = 1.5;
-const gyrotreshold = 10;
+const acelltresholf = 1.2;
+const gyrotreshold = 20;
 
 function onClick() {
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
