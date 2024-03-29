@@ -101,21 +101,20 @@ function acell(event) {
 
 //verifica se os deltas do acelerometro e giroscopio são menor que o gatilho de movimento
 function estado(){
-  if(!state.mov){
     if(((Math.abs(acellData.dx)) > acelltresholf)||((Math.abs(acellData.dy)) > acelltresholf)||((Math.abs(acellData.dz)) > acelltresholf)){
     state.acell = true;
     }
     if(((Math.abs(gyroData.dalpha)) > gyrotreshold)||((Math.abs(gyroData.dbeta)) > gyrotreshold)||((Math.abs(gyroData.dgamma)) > gyrotreshold)){
     state.gyro = true;
     }
-  }else{
+  
     if(((Math.abs(acellData.dx)) < acelltresholf)&&((Math.abs(acellData.dy)) < acelltresholf)&&((Math.abs(acellData.dz)) < acelltresholf)){
     state.acell = false;
     }
     if(((Math.abs(gyroData.dalpha)) < gyrotreshold)&&((Math.abs(gyroData.dbeta)) < gyrotreshold)&&((Math.abs(gyroData.dgamma)) < gyrotreshold)){
     state.gyro = false;
     }
-  }
+  
 
   //modifica os valores de debug na html
   if(state.acell){
