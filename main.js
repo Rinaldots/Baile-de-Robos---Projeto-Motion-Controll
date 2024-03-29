@@ -134,7 +134,7 @@ function estado(){
 
 //função para verificar quanto tempo o aparelho esta em movimento
 function movc(){
-  
+  estado()
   if(state.acell || state.gyro){
     state.mov = true;
   }else{
