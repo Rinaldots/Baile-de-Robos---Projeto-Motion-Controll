@@ -89,6 +89,7 @@ function acell(event) {
   gyroData.dgamma = event.rotationRate.gamma;
   
   estado()
+
   if(state.acell || state.gyro){
     setInterval(movimento(),500)
   }
@@ -115,6 +116,7 @@ function movimento(){
   if(!state.acell || !state.gyro){
     state.mov = false;
     document.getElementById('MovState').textContent = "PARADO";
+    clearInterval();
   }else{
     state.mov = true;
     document.getElementById('MovState').textContent = "MOVIMENTO";
