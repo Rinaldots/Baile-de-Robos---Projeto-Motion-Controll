@@ -95,9 +95,7 @@ function acell(event) {
   }else{
     document.getElementById('MovState').textContent = "Parado";
   }
-  if(state.acell || state.gyro){
-    setInterval(movc(),500)
-  }
+  movc()
   
   
 }
@@ -110,7 +108,6 @@ function estado(taxa){
     if(((Math.abs(gyroData.dalpha)) > taxa*gyrotreshold)||((Math.abs(gyroData.dbeta)) > taxa*gyrotreshold)||((Math.abs(gyroData.dgamma)) > taxa*gyrotreshold)){
     state.gyro = true;
     }
-  
     if(((Math.abs(acellData.dx)) < acelltresholf)&&((Math.abs(acellData.dy)) < acelltresholf)&&((Math.abs(acellData.dz)) < acelltresholf)){
     state.acell = false;
     }
@@ -134,7 +131,6 @@ function estado(taxa){
 
 //função para verificar quanto tempo o aparelho esta em movimento
 function movc(){
-  estado(1.5)
   if(state.acell || state.gyro){
     state.mov = true;
   }else{
