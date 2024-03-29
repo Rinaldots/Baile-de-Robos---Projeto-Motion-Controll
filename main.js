@@ -89,7 +89,7 @@ function acell(event) {
   gyroData.dbeta = event.rotationRate.beta;
   gyroData.dgamma = event.rotationRate.gamma;
   
-  estado()
+  estado(1)
   if(state.mov){
     document.getElementById('MovState').textContent = "Movimento";
   }else{
@@ -103,11 +103,11 @@ function acell(event) {
 }
 
 //verifica se os deltas do acelerometro e giroscopio são menor que o gatilho de movimento
-function estado(){
-    if(((Math.abs(acellData.dx)) > acelltresholf)||((Math.abs(acellData.dy)) > acelltresholf)||((Math.abs(acellData.dz)) > acelltresholf)){
+function estado(taxa){
+    if(((Math.abs(acellData.dx)) > taxa*acelltresholf)||((Math.abs(acellData.dy)) > taxa*acelltresholf)||((Math.abs(acellData.dz)) > taxa*acelltresholf)){
     state.acell = true;
     }
-    if(((Math.abs(gyroData.dalpha)) > gyrotreshold)||((Math.abs(gyroData.dbeta)) > gyrotreshold)||((Math.abs(gyroData.dgamma)) > gyrotreshold)){
+    if(((Math.abs(gyroData.dalpha)) > taxa*gyrotreshold)||((Math.abs(gyroData.dbeta)) > taxa*gyrotreshold)||((Math.abs(gyroData.dgamma)) > taxa*gyrotreshold)){
     state.gyro = true;
     }
   
@@ -134,7 +134,7 @@ function estado(){
 
 //função para verificar quanto tempo o aparelho esta em movimento
 function movc(){
-  estado()
+  estado(1.5)
   if(state.acell || state.gyro){
     state.mov = true;
   }else{
