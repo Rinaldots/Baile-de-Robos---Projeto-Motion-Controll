@@ -33,6 +33,7 @@ const temp = {
 
 const acelltresholf = 1.2;
 const gyrotreshold = 20;
+
 //starter
 function onClick() {
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
@@ -96,31 +97,45 @@ function acell(event) {
   
   
 }
+
+//verifica se os deltas do acelerometro e giroscopio são menor que o gatilho de movimento
 function estado(){
-  if(((Math.abs(acellData.dx)) > acelltresholf)||((Math.abs(acellData.dy)) > acelltresholf)||((Math.abs(acellData.dz)) > acelltresholf)){
+  if(!state.mov){
+    if(((Math.abs(acellData.dx)) > acelltresholf)||((Math.abs(acellData.dy)) > acelltresholf)||((Math.abs(acellData.dz)) > acelltresholf)){
     state.acell = true;
+    }
+    if(((Math.abs(gyroData.dalpha)) > gyrotreshold)||((Math.abs(gyroData.dbeta)) > gyrotreshold)||((Math.abs(gyroData.dgamma)) > gyrotreshold)){
+    state.gyro = true;
+    }
+  }else{
+    if(((Math.abs(acellData.dx)) < acelltresholf)&&((Math.abs(acellData.dy)) < acelltresholf)&&((Math.abs(acellData.dz)) < acelltresholf)){
+    state.acell = false;
+    }
+    if(((Math.abs(gyroData.dalpha)) < gyrotreshold)&&((Math.abs(gyroData.dbeta)) < gyrotreshold)&&((Math.abs(gyroData.dgamma)) < gyrotreshold)){
+    state.gyro = false;
+    }
+  }
+
+  //modifica os valores de debug na html
+  if(state.acell){
     document.getElementById('AcellState').textContent = "Detectado Movimento";
   }else{
-    state.acell = false;
     document.getElementById('AcellState').textContent = "Parado";
   }
-  if(((Math.abs(gyroData.dalpha)) > gyrotreshold)||((Math.abs(gyroData.dbeta)) > gyrotreshold)||((Math.abs(gyroData.dgamma)) > gyrotreshold)){
-    state.gyro = true;
-    document.getElementById('GyroState').textContent = "Detectado Movimento";
-  }else{
-    state.gyro = false;
-    document.getElementById('GyroState').textContent = "Parado";
-  }
 }
+
+//função para verificar quanto tempo o aparelho esta em movimento
 function movc(){
   if(state.acell || state.gyro){
     state.mov = true;
   }else{
     state.mov = false;
   }
+
+  //modifica os valores de debug na html
   if(state.mov){
     document.getElementById('MovState').textContent = "Movimento";
   }else{
-    document.getElementById('MovState').textContent = "data";
+    document.getElementById('MovState').textContent = "Parado";
   }
 }
