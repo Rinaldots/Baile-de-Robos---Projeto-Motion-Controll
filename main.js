@@ -18,7 +18,8 @@ const acellData = {
 
 const state = {
   gyro: false,
-  acell: false
+  acell: false,
+  mov: false
 }
 
 const temp = {
@@ -87,6 +88,13 @@ function acell(event) {
   gyroData.dbeta = event.rotationRate.beta;
   gyroData.dgamma = event.rotationRate.gamma;
   
+  estado()
+  if(state.acell || state.gyro){
+    setInterval()
+  }
+  
+}
+function estado(){
   if(((Math.abs(acellData.dx)) > acelltresholf)||((Math.abs(acellData.dy)) > acelltresholf)||((Math.abs(acellData.dz)) > acelltresholf)){
     state.acell = true;
     document.getElementById('AcellState').textContent = "Detectado Movimento";
@@ -101,6 +109,14 @@ function acell(event) {
     state.gyro = false;
     document.getElementById('GyroState').textContent = "Parado";
   }
+}
+function movimento(){
+  estado()
+  if(!state.acell || !state.gyro){
+    state.mov = false;
+  }else{
+    state.mov = true;
+    document.getElementById('MovState').textContent = "MOVIMENTO";
+  }
   
 }
-
