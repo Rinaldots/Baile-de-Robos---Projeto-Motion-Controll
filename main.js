@@ -91,13 +91,9 @@ function acell(event) {
   estado()
 
   if(state.acell || state.gyro){
-    setInterval(movc(),500)
+    setInterval(movc(),2000)
   }
-  if(state.mov){
-    document.getElementById('MovState').textContent = "Movimento";
-  }else{
-    document.getElementById('MovState').textContent = "data";
-  }
+  
   
 }
 function estado(){
@@ -121,5 +117,10 @@ function movc(){
     state.mov = true;
   }else{
     state.mov = false;
-   }
+  }
+  if(state.mov){
+    document.getElementById('MovState').textContent = "Movimento";
+  }else{
+    document.getElementById('MovState').textContent = "data";
+  }
 }
