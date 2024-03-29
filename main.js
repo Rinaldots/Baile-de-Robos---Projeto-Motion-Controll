@@ -90,7 +90,7 @@ function acell(event) {
   
   estado()
   if(state.acell || state.gyro){
-    setInterval()
+    setInterval(movimento(),500)
   }
   
 }
@@ -114,6 +114,7 @@ function movimento(){
   estado()
   if(!state.acell || !state.gyro){
     state.mov = false;
+    document.getElementById('MovState').textContent = "PARADO";
   }else{
     state.mov = true;
     document.getElementById('MovState').textContent = "MOVIMENTO";
