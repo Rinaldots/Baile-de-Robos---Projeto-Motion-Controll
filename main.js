@@ -122,6 +122,11 @@ function estado(){
   }else{
     document.getElementById('AcellState').textContent = "Parado";
   }
+  if(state.gyro){
+    document.getElementById('GyroState').textContent = "Detectado Movimento";
+  }else{
+    document.getElementById('GyroState').textContent = "Parado";
+  }
 }
 
 //função para verificar quanto tempo o aparelho esta em movimento
