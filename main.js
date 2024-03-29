@@ -91,7 +91,12 @@ function acell(event) {
   estado()
 
   if(state.acell || state.gyro){
-    setInterval(movimento(),500)
+    setInterval(movc(),500)
+  }
+  if(state.mov){
+    document.getElementById('MovState').textContent = "Movimento";
+  }else{
+    document.getElementById('MovState').textContent = "data";
   }
   
 }
@@ -111,18 +116,10 @@ function estado(){
     document.getElementById('GyroState').textContent = "Parado";
   }
 }
-function movimento(){
-  estado()
-  setTimeout(state.mov = true, 499)
-  if(!state.acell || !state.gyro){
-    state.mov = false;
-    clearInterval();
-    clearTimeout()
-  }
-  if(state.mov){
-    document.getElementById('MovState').textContent = "MOVIMENTO";
+function movc(){
+  if(state.acell || state.gyro){
+    state.mov = true;
   }else{
-    document.getElementById('MovState').textContent = "PARADO";
-  }
-  
+    state.mov = false;
+   }
 }
