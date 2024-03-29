@@ -33,7 +33,7 @@ const temp = {
 
 const acelltresholf = 1.2;
 const gyrotreshold = 20;
-
+//starter
 function onClick() {
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
     DeviceMotionEvent.requestPermission()
@@ -59,7 +59,7 @@ function onClick() {
   }
 }
 
-
+//obtem dados do giroscopio e salva no objeto
 function gyro(event) {
   temp.alpha = gyroData.alpha;
   temp.beta = gyroData.beta;
@@ -78,7 +78,7 @@ function gyro(event) {
   
 }
 
-
+//obtem dados do acelerometro e salva no objeto
 function acell(event) {
   acellData.dx = event.acceleration.x;
   acellData.dy = event.acceleration.y;
