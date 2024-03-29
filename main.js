@@ -90,7 +90,11 @@ function acell(event) {
   gyroData.dgamma = event.rotationRate.gamma;
   
   estado()
-
+  if(state.mov){
+    document.getElementById('MovState').textContent = "Movimento";
+  }else{
+    document.getElementById('MovState').textContent = "Parado";
+  }
   if(state.acell || state.gyro){
     setInterval(movc(),500)
   }
@@ -135,12 +139,5 @@ function movc(){
     state.mov = true;
   }else{
     state.mov = false;
-  }
-
-  //modifica os valores de debug na html
-  if(state.mov){
-    document.getElementById('MovState').textContent = "Movimento";
-  }else{
-    document.getElementById('MovState').textContent = "Parado";
   }
 }
