@@ -93,6 +93,7 @@ function acell(event) {
 
   if(state.acell || state.gyro){
     setInterval(movc(),2000)
+    setTimeout(state.mov = false, 2000)
   }
   
   
@@ -131,6 +132,7 @@ function estado(){
 
 //função para verificar quanto tempo o aparelho esta em movimento
 function movc(){
+  
   if(state.acell || state.gyro){
     state.mov = true;
   }else{
