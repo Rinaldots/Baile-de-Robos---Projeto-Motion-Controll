@@ -89,7 +89,7 @@ function acell(event) {
   gyroData.dbeta = event.rotationRate.beta;
   gyroData.dgamma = event.rotationRate.gamma;
   
-  estado(1)
+  estado(1.5)
   if(state.mov){
     document.getElementById('MovState').textContent = "Movimento";
   }else{
