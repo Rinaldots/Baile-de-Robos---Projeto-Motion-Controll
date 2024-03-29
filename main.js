@@ -113,13 +113,16 @@ function estado(){
 }
 function movimento(){
   estado()
+  setTimeout(state.mov = true, 499)
   if(!state.acell || !state.gyro){
     state.mov = false;
-    document.getElementById('MovState').textContent = "PARADO";
     clearInterval();
-  }else{
-    state.mov = true;
+    clearTimeout()
+  }
+  if(state.mov){
     document.getElementById('MovState').textContent = "MOVIMENTO";
+  }else{
+    document.getElementById('MovState').textContent = "PARADO";
   }
   
 }
