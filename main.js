@@ -92,8 +92,7 @@ function acell(event) {
   estado()
 
   if(state.acell || state.gyro){
-    setInterval(movc(),2000)
-    setTimeout(state.mov = false, 2000)
+    setInterval(movc(),500)
   }
   
   
