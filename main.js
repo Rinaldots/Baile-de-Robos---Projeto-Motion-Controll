@@ -33,6 +33,8 @@ const temp = {
   data: [],
 };
 
+let registerdelay = true
+
 class saveData {
   constructor(type,number,data,result){
     this.type = type;
@@ -76,17 +78,14 @@ function loop(){
   estado(1.5)
   
   movc()
-  
-  let registerdelay = true
 
-  if(state.mov && registerdelay){
-    register()
-    
+  if(state.mov){
+    setTimeout(register(),500);
   }else{
     document.getElementById('MovState').textContent = "Parado";
     state.timer = 0;
   }
-
+  
   loop();
 }
 //obtem dados do giroscopio e salva no objeto
@@ -142,9 +141,9 @@ function estado(taxa){
     document.getElementById('AcellState').textContent = "Parado";
   }
   if(state.gyro){
-    document.getElementById('GyroState').textContent = registerdelay;
+    document.getElementById('GyroState').textContent = "Detectado Movimento";
   }else{
-    document.getElementById('GyroState').textContent = registerdelay;
+    document.getElementById('GyroState').textContent = "Parado";
   }
 }
 
@@ -164,7 +163,7 @@ function register(){
     if(state.timer > 100){
       data[data.lenght] = new saveData ("data",data.length,tamp.data,"")
       state.timer = 0;
-      registerdelay=false
+      
     }
     setInterval(registerdelay=false,500)
 }
