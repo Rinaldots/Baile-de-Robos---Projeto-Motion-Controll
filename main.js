@@ -84,7 +84,7 @@ function loop(){
     state.timer = 0;
   }
   
-  loop();
+  setTimeout(loop(),100);
 }
 //obtem dados do giroscopio e salva no objeto
 function gyro(event) {
