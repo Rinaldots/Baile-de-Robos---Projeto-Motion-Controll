@@ -33,8 +33,6 @@ const temp = {
   data: [],
 };
 
-let registerdelay = true
-
 class saveData {
   constructor(type,number,data,result){
     this.type = type;
@@ -165,5 +163,4 @@ function register(){
       state.timer = 0;
       
     }
-    setInterval(registerdelay=false,500)
 }
