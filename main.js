@@ -69,8 +69,26 @@ function onClick() {
   } else {
     window.addEventListener('deviceorientation', gyro);
   }
+  loop();
 }
+function loop(){
+  
+  estado(1.5)
+  
+  movc()
+  
+  let registerdelay = true
 
+  if(state.mov && registerdelay){
+    register()
+    
+  }else{
+    document.getElementById('MovState').textContent = "Parado";
+    state.timer = 0;
+  }
+
+  loop();
+}
 //obtem dados do giroscopio e salva no objeto
 function gyro(event) {
   temp.alpha = gyroData.alpha;
@@ -99,22 +117,6 @@ function acell(event) {
   gyroData.dalpha = event.rotationRate.alpha;
   gyroData.dbeta = event.rotationRate.beta;
   gyroData.dgamma = event.rotationRate.gamma;
-  
-  estado(1.5)
-  
-  movc()
-  
-  let registerdelay = true
-
-  if(state.mov && registerdelay){
-    register()
-    
-  }else{
-    document.getElementById('MovState').textContent = "Parado";
-    state.timer = 0;
-  }
- 
-  
 }
 
 //verifica se os deltas do acelerometro e giroscopio são menor que o gatilho de movimento
