@@ -78,13 +78,13 @@ function loop(){
   movc()
 
   if(state.mov){
-    setTimeout(register(),500);
+    setInterval(register(),500);
   }else{
     document.getElementById('MovState').textContent = "Parado";
     state.timer = 0;
   }
   
-  setTimeout(loop(),100);
+  setInterval(loop(),100);
 }
 //obtem dados do giroscopio e salva no objeto
 function gyro(event) {
