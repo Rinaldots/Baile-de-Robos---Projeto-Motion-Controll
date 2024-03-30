@@ -19,7 +19,8 @@ const acellData = {
 const state = {
   gyro: false,
   acell: false,
-  mov: false
+  mov: false,
+  timer: 0,
 }
 
 const temp = {
@@ -90,8 +91,9 @@ function acell(event) {
   gyroData.dgamma = event.rotationRate.gamma;
   
   estado(1.5)
+
   if(state.mov){
-    document.getElementById('MovState').textContent = "Movimento";
+    setTimeout(register(),100)
   }else{
     document.getElementById('MovState').textContent = "Parado";
   }
@@ -136,4 +138,9 @@ function movc(){
   }else{
     state.mov = false;
   }
+}
+
+function register(){
+    state.timer += 1;
+    document.getElementById('MovState').textContent = state.timer;
 }
