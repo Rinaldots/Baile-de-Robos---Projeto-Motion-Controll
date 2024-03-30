@@ -15,7 +15,7 @@ const acellData = {
   dy: null,
   dz: null
 };
-const data = [];
+
 const state = {
   gyro: false,
   acell: false,
@@ -30,6 +30,7 @@ const temp = {
   x: null,
   y: null,
   z: null,
+  data: [],
 };
 
 class saveData {
@@ -154,7 +155,7 @@ function movc(){
 
 function register(){
     state.timer += 1;
-    temporario.data = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
+    temp.data[temp.data.length] = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
     document.getElementById('MovState').textContent = state.timer;
     if(state.timer > 100){
       data[data.lenght] = new saveData ("data",data.length,tamp.data,"")
