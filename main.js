@@ -101,15 +101,15 @@ function acell(event) {
   gyroData.dgamma = event.rotationRate.gamma;
   
   estado(1.5)
-
+  movc()
+  
   if(state.mov){
     setTimeout(register(),1000)
   }else{
     document.getElementById('MovState').textContent = "Parado";
     state.timer = 0;
   }
-  movc()
-  
+ 
   
 }
 
@@ -157,7 +157,7 @@ function register(){
     document.getElementById('MovState').textContent = state.timer;
     if(state.timer > 100){
       data[data.lenght] = new saveData ("data",data.length,tamp.data,"")
-      state.mov = false;
+      setInterval(state.mov = false, 1000)
       state.timer = 0;
     }
 }
