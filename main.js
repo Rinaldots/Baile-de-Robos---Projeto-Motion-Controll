@@ -15,7 +15,7 @@ const acellData = {
   dy: null,
   dz: null
 };
-
+const data = [];
 const state = {
   gyro: false,
   acell: false,
@@ -31,6 +31,17 @@ const temp = {
   y: null,
   z: null,
 };
+
+class saveData {
+  constructor(type,number,data,result){
+    this.type = type;
+    this.number = number;
+    this.data = data || [];
+    this.result = result;
+  };
+};
+
+const temp = new saveData ("temp", "temp", [], false)
 
 const acelltresholf = 1.2;
 const gyrotreshold = 20;
@@ -143,5 +154,11 @@ function movc(){
 
 function register(){
     state.timer += 1;
+    temp.data = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
     document.getElementById('MovState').textContent = state.timer;
+    if(state.timer > 100){
+      data[data.lenght] = new saveData ("data",data.length,tamp.data,"")
+      state.mov = false;
+      state.timer = 0;
+    }
 }
