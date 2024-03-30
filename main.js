@@ -42,8 +42,6 @@ class saveData {
   };
 };
 
-const temporario = new saveData ("temp", "temp", [], false)
-
 const acelltresholf = 1.2;
 const gyrotreshold = 20;
 
