@@ -84,7 +84,7 @@ function loop(){
     state.timer = 0;
   }
   
-  setInterval(loop(),100);
+  window.requestAnimationFrame(loop);
 }
 //obtem dados do giroscopio e salva no objeto
 function gyro(event) {
