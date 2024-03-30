@@ -140,9 +140,9 @@ function estado(taxa){
     document.getElementById('AcellState').textContent = "Parado";
   }
   if(state.gyro){
-    document.getElementById('GyroState').textContent = "Detectado Movimento";
+    document.getElementById('GyroState').textContent = registerdelay;
   }else{
-    document.getElementById('GyroState').textContent = "Parado";
+    document.getElementById('GyroState').textContent = registerdelay;
   }
 }
 
