@@ -41,7 +41,7 @@ class saveData {
   };
 };
 
-const temp = new saveData ("temp", "temp", [], false)
+const temporario = new saveData ("temp", "temp", [], false)
 
 const acelltresholf = 1.2;
 const gyrotreshold = 20;
@@ -154,7 +154,7 @@ function movc(){
 
 function register(){
     state.timer += 1;
-    temp.data = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
+    temporario.data = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
     document.getElementById('MovState').textContent = state.timer;
     if(state.timer > 100){
       data[data.lenght] = new saveData ("data",data.length,tamp.data,"")
