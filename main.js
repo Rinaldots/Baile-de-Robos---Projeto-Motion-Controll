@@ -108,7 +108,7 @@ function acell(event) {
 
   if(state.mov && registerdelay){
     register()
-    setInterval(registerdelay=false,500)
+    
   }else{
     document.getElementById('MovState').textContent = "Parado";
     state.timer = 0;
@@ -162,5 +162,7 @@ function register(){
     if(state.timer > 100){
       data[data.lenght] = new saveData ("data",data.length,tamp.data,"")
       state.timer = 0;
+      registerdelay=false
     }
+    setInterval(registerdelay=false,500)
 }
