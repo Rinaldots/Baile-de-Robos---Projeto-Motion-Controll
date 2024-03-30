@@ -104,8 +104,11 @@ function acell(event) {
   
   movc()
   
-  if(state.mov){
-    setTimeout(1000).them(() => register())
+  let registerdelay = true
+
+  if(state.mov && registerdelay){
+    register()
+    setInterval(registerdelay=false,500)
   }else{
     document.getElementById('MovState').textContent = "Parado";
     state.timer = 0;
