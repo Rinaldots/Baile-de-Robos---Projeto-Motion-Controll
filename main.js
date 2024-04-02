@@ -84,7 +84,7 @@ function loop(){
     state.timer = 0;
   }
   
-  window.requestAnimationFrame(loop);
+ 
 }
 //obtem dados do giroscopio e salva no objeto
 function gyro(event) {
@@ -155,7 +155,7 @@ function movc(){
 }
 
 function register(){
-    setInterval(function(){state.timer += 1},50)
+    state.timer += 1;
     temp.data[temp.data.length] = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
     document.getElementById('MovState').textContent = state.timer;
     if(state.timer > 100){
@@ -164,3 +164,4 @@ function register(){
       
     }
 }
+setInterval(loop,500)
