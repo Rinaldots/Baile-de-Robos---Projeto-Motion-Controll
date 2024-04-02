@@ -164,4 +164,4 @@ function register(){
       
     }
 }
-setInterval(loop,500)
+setInterval(loop,50)
