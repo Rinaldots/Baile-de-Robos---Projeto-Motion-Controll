@@ -78,7 +78,7 @@ function loop(){
   movc()
 
   if(state.mov){
-    setInterval(register(),500);
+    register()
   }else{
     document.getElementById('MovState').textContent = "Parado";
     state.timer = 0;
@@ -155,7 +155,7 @@ function movc(){
 }
 
 function register(){
-    state.timer += 1;
+    setInterval(function(){state.timer += 1},50)
     temp.data[temp.data.length] = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
     document.getElementById('MovState').textContent = state.timer;
     if(state.timer > 100){
