@@ -111,7 +111,7 @@ function estado(taxa){
     state.gyro = false;
   }
   
-  modifica os valores de debug na html
+  //modifica os valores de debug na html
   if(state.acell){
     document.getElementById('AcellState').textContent = "Detectado Movimento";
   }else{
