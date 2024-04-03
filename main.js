@@ -157,17 +157,17 @@ function register(){
     //função para mandar o robo para esquerda
       document.getElementById('status-Esquerda').style = "color:green";
     }
-    if((gyroData.beta) > delta){
+    if((gyroData.beta) > 1){
     //função para mandar o robo para Traz
       document.getElementById('status-Atraz').style = "color:green";
-    }else if((gyroData.beta) < -delta){
+    }else if((gyroData.beta) < -1){
     //função para mandar o robo para Frente
       document.getElementById('status-Frente').style = "color:green";
     }
-    if(gyroData.dalpha > delta/15){
+    if(gyroData.dalpha > 1){
     //função girando para esquerda
       document.getElementById('status-Girando-Esquerda').style = "color:green";
-    }else if(gyroData.dalpha < -delta/15){
+    }else if(gyroData.dalpha < -1){
     //função girando para direita
       document.getElementById('status-Girando-Direita').style = "color:green";
     }
