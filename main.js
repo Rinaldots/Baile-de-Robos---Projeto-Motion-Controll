@@ -71,13 +71,7 @@ function loop(){
   
   movc()
   
-  if(state.mov){
-    //register()
-    controle()
-  }else{
-    document.getElementById('MovState').textContent = "Parado";
-    state.timer = 0;
-  }
+  controle()
   
  
 }
@@ -157,17 +151,17 @@ function register(){
   function controle(){ 
     if (gyroData.gammma > 30){  
     //função para mandar o robo para direita
-      document.getElementById('GyroState').textContent = "Detectado Movimento - Direita";
+      document.getElementById('State').textContent = "Detectado Movimento - Direita";
     }else if(gyroDara.gamma < -30){
     //função para mandar o robo para esquerda
-      document.getElementById('GyroState').textContent = "Detectado Movimento - Esquerda";
+      document.getElementById('State').textContent = "Detectado Movimento - Esquerda";
     }
     if(gyroData.beta > 30){
     //função para mandar o robo para Traz
-      document.getElementById('GyroState').textContent = "Detectado Movimento - Tras";
+      document.getElementById('State').textContent = "Detectado Movimento - Tras";
     }else if(gyroData.beta < -30){
     //função para mandar o robo para Frente
-      document.getElementById('GyroState').textContent = "Detectado Movimento - Frente";
+      document.getElementById('State').textContent = "Detectado Movimento - Frente";
     }
   }
 
