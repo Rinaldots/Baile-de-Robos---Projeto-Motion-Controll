@@ -24,12 +24,6 @@ const state = {
 }
 
 const temp = {
-  alpha: null,
-  beta: null,
-  gamma: null,
-  x: null,
-  y: null,
-  z: null,
   data: [],
 };
 
@@ -76,9 +70,10 @@ function loop(){
   estado(1.5)
   
   movc()
-
+  
   if(state.mov){
-    register()
+    //register()
+    controle()
   }else{
     document.getElementById('MovState').textContent = "Parado";
     state.timer = 0;
@@ -88,16 +83,10 @@ function loop(){
 }
 //obtem dados do giroscopio e salva no objeto
 function gyro(event) {
-  temp.alpha = gyroData.alpha;
-  temp.beta = gyroData.beta;
-  temp.gamma = gyroData.gamma;
-
   gyroData.alpha = event.alpha;
   gyroData.beta = event.beta;
   gyroData.gamma = event.gamma;
 
-  
- 
   document.getElementById('gyroAlpha').textContent = gyroData.alpha.toFixed(3);
   document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
   document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
@@ -107,32 +96,31 @@ function gyro(event) {
 
 //obtem dados do acelerometro e salva no objeto
 function acell(event) {
-  acellData.dx = event.acceleration.x;
-  acellData.dy = event.acceleration.y;
-  acellData.dz = event.acceleration.z;
+    acellData.dx = event.acceleration.x;
+    acellData.dy = event.acceleration.y;
+    acellData.dz = event.acceleration.z;
   
-  gyroData.dalpha = event.rotationRate.alpha;
-  gyroData.dbeta = event.rotationRate.beta;
-  gyroData.dgamma = event.rotationRate.gamma;
+    gyroData.dalpha = event.rotationRate.alpha;
+    gyroData.dbeta = event.rotationRate.beta;
+    gyroData.dgamma = event.rotationRate.gamma;
 }
 
 //verifica se os deltas do acelerometro e giroscopio são menor que o gatilho de movimento
 function estado(taxa){
-    if(((Math.abs(acellData.dx)) > taxa*acelltresholf)||((Math.abs(acellData.dy)) > taxa*acelltresholf)||((Math.abs(acellData.dz)) > taxa*acelltresholf)){
+  if(((Math.abs(acellData.dx)) > taxa*acelltresholf)||((Math.abs(acellData.dy)) > taxa*acelltresholf)||((Math.abs(acellData.dz)) > taxa*acelltresholf)){
     state.acell = true;
-    }
-    if(((Math.abs(gyroData.dalpha)) > taxa*gyrotreshold)||((Math.abs(gyroData.dbeta)) > taxa*gyrotreshold)||((Math.abs(gyroData.dgamma)) > taxa*gyrotreshold)){
+  }
+  if(((Math.abs(gyroData.dalpha)) > taxa*gyrotreshold)||((Math.abs(gyroData.dbeta)) > taxa*gyrotreshold)||((Math.abs(gyroData.dgamma)) > taxa*gyrotreshold)){
     state.gyro = true;
-    }
-    if(((Math.abs(acellData.dx)) < acelltresholf)&&((Math.abs(acellData.dy)) < acelltresholf)&&((Math.abs(acellData.dz)) < acelltresholf)){
+  }
+  if(((Math.abs(acellData.dx)) < acelltresholf)&&((Math.abs(acellData.dy)) < acelltresholf)&&((Math.abs(acellData.dz)) < acelltresholf)){
     state.acell = false;
-    }
-    if(((Math.abs(gyroData.dalpha)) < gyrotreshold)&&((Math.abs(gyroData.dbeta)) < gyrotreshold)&&((Math.abs(gyroData.dgamma)) < gyrotreshold)){
+  }
+  if(((Math.abs(gyroData.dalpha)) < gyrotreshold)&&((Math.abs(gyroData.dbeta)) < gyrotreshold)&&((Math.abs(gyroData.dgamma)) < gyrotreshold)){
     state.gyro = false;
-    }
+  }
   
-
-  //modifica os valores de debug na html
+  /*modifica os valores de debug na html
   if(state.acell){
     document.getElementById('AcellState').textContent = "Detectado Movimento";
   }else{
@@ -142,7 +130,7 @@ function estado(taxa){
     document.getElementById('GyroState').textContent = "Detectado Movimento";
   }else{
     document.getElementById('GyroState').textContent = "Parado";
-  }
+  }*/
 }
 
 //função para verificar quanto tempo o aparelho esta em movimento
@@ -154,6 +142,7 @@ function movc(){
   }
 }
 
+//Função para transformar os dados em uma matriz. Para tentar passar no TensorFlow.
 function register(){
     state.timer += 1;
     temp.data[temp.data.length] = [state.timer][acellData.dx,acellData.dy,acellData.dz,gyroData.dalpha,gyroData.dbeta,gyroData.dgamma]
@@ -164,4 +153,22 @@ function register(){
       
     }
 }
+//função para o controle basico do carrinho
+  function controle(){ 
+    if (gyroData.gammma > 30){  
+    //função para mandar o robo para direita
+      document.getElementById('GyroState').textContent = "Detectado Movimento - Direita";
+    }else if(gyroDara.gamma < -30){
+    //função para mandar o robo para esquerda
+      document.getElementById('GyroState').textContent = "Detectado Movimento - Esquerda";
+    }
+    if(gyroData.beta > 30){
+    //função para mandar o robo para Traz
+      document.getElementById('GyroState').textContent = "Detectado Movimento - Tras";
+    }else if(gyroData.beta < -30){
+    //função para mandar o robo para Frente
+      document.getElementById('GyroState').textContent = "Detectado Movimento - Frente";
+    }
+  }
+
 setInterval(loop,50)
