@@ -148,6 +148,8 @@ function register(){
     document.getElementById('status-Esquerda').style = "color:red";
     document.getElementById('status-Frente').style = "color:red";
     document.getElementById('status-Atraz').style = "color:red";
+    document.getElementById('status-Girando-Esquerda').style = "color:red";
+    document.getElementById('status-Girando-Direita').style = "color:red";
     if ((gyroData.gamma) > delta){  
     //função para mandar o robo para direita
       document.getElementById('status-Direito').style = "color:green";
@@ -161,6 +163,13 @@ function register(){
     }else if((gyroData.beta) < -delta){
     //função para mandar o robo para Frente
       document.getElementById('status-Frente').style = "color:green";
+    }
+    if(gyroData.dalpha > delta/15){
+    //função girando para esquerda
+      document.getElementById('status-Girando-Esquerda').style = "color:green";
+    }else if(gyroData.dalpha < -delta/15){
+    //função girando para direita
+      document.getElementById('status-Girando-Direita').style = "color:green";
     }
 }
 
