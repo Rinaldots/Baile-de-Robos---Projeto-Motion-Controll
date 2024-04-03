@@ -68,7 +68,7 @@ function onClick() {
 function loop(){
   
   estado(1.5)
-  controle()
+  controle(15)
  
 }
 //obtem dados do giroscopio e salva no objeto
@@ -143,19 +143,19 @@ function register(){
     }
 }
 //função para o controle basico do carrinho
-  function controle(){ 
+  function controle(delta){ 
      
-    if ((gyroData.gamma) > 30){  
+    if ((gyroData.gamma) > delta){  
     //função para mandar o robo para direita
       document.getElementById('estatus').textContent = "Direita";
-    }else if((gyroData.gamma) < -30){
+    }else if((gyroData.gamma) < -delta){
     //função para mandar o robo para esquerda
       document.getElementById('estatus').textContent = "Esquerda";
     }
-    if((gyroData.beta) > 30){
+    if((gyroData.beta) > delta){
     //função para mandar o robo para Traz
       document.getElementById('estatus').textContent = "Tras";
-    }else if((gyroData.beta) < -30){
+    }else if((gyroData.beta) < -delta){
     //função para mandar o robo para Frente
       document.getElementById('estatus').textContent = "Frente";
     }
