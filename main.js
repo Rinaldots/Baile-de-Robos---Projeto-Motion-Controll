@@ -144,31 +144,23 @@ function register(){
 }
 //função para o controle basico do carrinho
   function controle(delta){ 
-     
+    document.getElementById('status-Direito').style = "color:red";
+    document.getElementById('status-Esquerda').style = "color:red";
+    document.getElementById('status-Frente').style = "color:red";
+    document.getElementById('status-Atraz').style = "color:red";
     if ((gyroData.gamma) > delta){  
     //função para mandar o robo para direita
       document.getElementById('status-Direito').style = "color:green";
-      document.getElementById('status-Esquerda').style = "color:red";
     }else if((gyroData.gamma) < -delta){
     //função para mandar o robo para esquerda
       document.getElementById('status-Esquerda').style = "color:green";
-      document.getElementById('status-Direito').style = "color:red";
-    }else{
-    document.getElementById('status-Direito').style = "color:red";
-    document.getElementById('status-Esquerda').style = "color:red";  
     }
-    
     if((gyroData.beta) > delta){
     //função para mandar o robo para Traz
       document.getElementById('status-Atraz').style = "color:green";
-      document.getElementById('status-Frente').style = "color:red";
     }else if((gyroData.beta) < -delta){
     //função para mandar o robo para Frente
       document.getElementById('status-Frente').style = "color:green";
-      document.getElementById('status-Atraz').style = "color:red";
-    }else{
-      document.getElementById('status-Frente').style = "color:red";
-      document.getElementById('status-Atraz').style = "color:red";
     }
 }
 
