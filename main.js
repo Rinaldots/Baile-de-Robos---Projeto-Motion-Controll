@@ -111,7 +111,7 @@ function estado(taxa){
     state.gyro = false;
   }
   
-  /*modifica os valores de debug na html
+  modifica os valores de debug na html
   if(state.acell){
     document.getElementById('AcellState').textContent = "Detectado Movimento";
   }else{
@@ -121,7 +121,7 @@ function estado(taxa){
     document.getElementById('GyroState').textContent = "Detectado Movimento";
   }else{
     document.getElementById('GyroState').textContent = "Parado";
-  }*/
+  }
 }
 
 //função para verificar quanto tempo o aparelho esta em movimento
@@ -146,6 +146,7 @@ function register(){
 }
 //função para o controle basico do carrinho
   function controle(){ 
+     document.getElementById('State').textContent = "Direita";
     if (gyroData.gammma > 30){  
     //função para mandar o robo para direita
       document.getElementById('State').textContent = "Direita";
