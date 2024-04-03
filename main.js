@@ -69,10 +69,6 @@ function loop(){
   
   estado(1.5)
   
-  movc()
-  
-  controle()
-  
  
 }
 //obtem dados do giroscopio e salva no objeto
@@ -84,7 +80,7 @@ function gyro(event) {
   document.getElementById('gyroAlpha').textContent = gyroData.alpha.toFixed(3);
   document.getElementById('gyroBeta').textContent = gyroData.beta.toFixed(3);
   document.getElementById('gyroGamma').textContent = gyroData.gamma.toFixed(3);
-  
+  controle()
   
 }
 
@@ -101,6 +97,7 @@ function acell(event) {
 
 //verifica se os deltas do acelerometro e giroscopio são menor que o gatilho de movimento
 function estado(taxa){
+  
   if(((Math.abs(acellData.dx)) > taxa*acelltresholf)||((Math.abs(acellData.dy)) > taxa*acelltresholf)||((Math.abs(acellData.dz)) > taxa*acelltresholf)){
     state.acell = true;
   }
