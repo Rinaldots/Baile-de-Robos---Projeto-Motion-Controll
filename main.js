@@ -148,17 +148,17 @@ function register(){
   function controle(){ 
     if (gyroData.gammma > 30){  
     //função para mandar o robo para direita
-      document.getElementById('State').textContent = "Detectado Movimento - Direita";
+      document.getElementById('State').textContent = "Direita";
     }else if(gyroDara.gamma < -30){
     //função para mandar o robo para esquerda
-      document.getElementById('State').textContent = "Detectado Movimento - Esquerda";
+      document.getElementById('State').textContent = "Esquerda";
     }
     if(gyroData.beta > 30){
     //função para mandar o robo para Traz
-      document.getElementById('State').textContent = "Detectado Movimento - Tras";
+      document.getElementById('State').textContent = "Tras";
     }else if(gyroData.beta < -30){
     //função para mandar o robo para Frente
-      document.getElementById('State').textContent = "Detectado Movimento - Frente";
+      document.getElementById('State').textContent = "Frente";
     }
   }
 
