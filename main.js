@@ -146,20 +146,20 @@ function register(){
 }
 //função para o controle basico do carrinho
   function controle(){ 
-     document.getElementById('State').textContent = "Direita";
+     document.getElementById('estatus').textContent = "Direita";
     if (gyroData.gammma > 30){  
     //função para mandar o robo para direita
-      document.getElementById('State').textContent = "Direita";
+      document.getElementById('estatus').textContent = "Direita";
     }else if(gyroDara.gamma < -30){
     //função para mandar o robo para esquerda
-      document.getElementById('State').textContent = "Esquerda";
+      document.getElementById('estatus').textContent = "Esquerda";
     }
     if(gyroData.beta > 30){
     //função para mandar o robo para Traz
-      document.getElementById('State').textContent = "Tras";
+      document.getElementById('estatus').textContent = "Tras";
     }else if(gyroData.beta < -30){
     //função para mandar o robo para Frente
-      document.getElementById('State').textContent = "Frente";
+      document.getElementById('estatus').textContent = "Frente";
     }
   }
 
