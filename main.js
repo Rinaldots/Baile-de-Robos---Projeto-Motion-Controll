@@ -151,14 +151,18 @@ function register(){
     }else if((gyroData.gamma) < -30){
     //função para mandar o robo para esquerda
       document.getElementById('estatus').textContent = "Esquerda";
-    }
+    }else{
+document.getElementById('estatus').textContent = "Nada";
+ }
     if((gyroData.beta) > 30){
     //função para mandar o robo para Traz
       document.getElementById('estatus').textContent = "Tras";
     }else if((gyroData.beta) < -30){
     //função para mandar o robo para Frente
       document.getElementById('estatus').textContent = "Frente";
-    }
+    }else{
+document.getElementById('estatus').textContent = "Nada";
+}
   }
 
 setInterval(loop,50)
