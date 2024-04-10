@@ -2,29 +2,37 @@
 <html lang="en">
 <head>
   <script src="main.js"></script>
+  <script src="cube.js"></script>
 </head>
 <body>
-  <h3>Giroscópio</h3>
-  <h3>Valores do giroscópio.</h3>
-  <p><span class="leitura">Alpha: <span id="gyroAlpha">0</span></span></p>
-  <p><span class="leitura">Beta: <span id="gyroBeta">0</span></span></p>
-  <p><span class="leitura">Gamma: <span id="gyroGamma">0</span></span></p>
-  <h3>Deltas do giroscópio.</h3>
-  
-  <input type="button" onclick="onClick()" value="Iniciar Giroscópio">
-  
-  <p><span class="leitura">Giroscopio: <span id="GyroState">0</span></span></p>
-  <p><span class="leitura">Acelerometro: <span id="AcellState">0</span></span></p>
-  <p><span class="leitura">Movimento: <span id="MovState">0</span></span></p>
-  <p><span class="leitura">Status:
-    <span id="status-Frente"; style="color:red">Frente</span>
-    <span id="status-Atraz"; style="color:red">Atraz</span>
-    <span id="status-Direito"; style="color:red">Direito</span>
-    <span id="status-Esquerda"; style="color:red">Esquerda</span>
-    <span id="status-Girando-Esquerda"; style="color:red">Girando-Esquerda</span>
-    <span id="status-Girando-Direita"; style="color:red">Girando-Direita</span>
-  </span></p>
-  <canvas></canvas>
+  <div style="display: flex;">
+    <div style="flex: 1;">
+      <h3>Giroscópio</h3>
+      <h3>Valores do giroscópio.</h3>
+      <p><span class="leitura">Alpha: <span id="gyroAlpha">0</span></span></p>
+      <p><span class="leitura">Beta: <span id="gyroBeta">0</span></span></p>
+      <p><span class="leitura">Gamma: <span id="gyroGamma">0</span></span></p>
+      <h3>Deltas do giroscópio.</h3>
+
+      <input type="button" onclick="onClick()" value="Iniciar Giroscópio">
+
+      <p><span class="leitura">Giroscopio: <span id="GyroState">0</span></span></p>
+      <p><span class="leitura">Acelerometro: <span id="AcellState">0</span></span></p>
+      <p><span class="leitura">Movimento: <span id="MovState">0</span></span></p>
+      <p>
+        <span class="leitura">
+          Status:
+          <span id="status-Frente" style="color:red">Frente</span>
+          <span id="status-Atraz" style="color:red">Atraz</span>
+          <span id="status-Direito" style="color:red">Direito</span>
+          <span id="status-Esquerda" style="color:red">Esquerda</span>
+          <span id="status-Girando-Esquerda" style="color:red">Girando-Esquerda</span>
+          <span id="status-Girando-Direita" style="color:red">Girando-Direita</span>
+        </span>
+      </p>
+    </div>
+    <canvas style="flex: 1;"></canvas>
+  </div>
   
 </body>
 </html>
